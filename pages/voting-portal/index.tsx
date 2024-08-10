@@ -36,6 +36,8 @@ export default function VotingPortal() {
   const position1 = "President";
   const position2 = "Vice President";
   const position3 = "Secretary";
+  const position4 = "Treasurer";
+  const position5 = "Public Relations Officer";
 
   const { data: presidentialCandidates } = useReadContract({
     abi: abi,
@@ -58,6 +60,20 @@ export default function VotingPortal() {
     args: [position3],
   });
 
+  const { data: treasurerCandidates } = useReadContract({
+    abi: abi,
+    address: votingContract,
+    functionName: "getCandidates",
+    args: [position4],
+  });
+
+  const { data: proCandidates } = useReadContract({
+    abi: abi,
+    address: votingContract,
+    functionName: "getCandidates",
+    args: [position5],
+  });
+
   // Populate positions with candidates from the contract
   useEffect(() => {
     const fetchedPositions: Position[] = [
@@ -73,10 +89,18 @@ export default function VotingPortal() {
         name: position3,
         candidates: secretaryCandidates as Candidate[], // Ensure this matches the type
       },
+      {
+        name: position4,
+        candidates: treasurerCandidates as Candidate[], // Ensure this matches the type
+      },
+      {
+        name: position5,
+        candidates: proCandidates as Candidate[], // Ensure this matches the type
+      },
     ];
 
     setPositions(fetchedPositions);
-  }, [presidentialCandidates, vicePresidentialCandidates, secretaryCandidates]);
+  }, [presidentialCandidates, vicePresidentialCandidates, secretaryCandidates, treasurerCandidates, proCandidates]);
 
   const handleCandidateSelection = (position: string, candidate: string) => {
     setSelectedCandidates({

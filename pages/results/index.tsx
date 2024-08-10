@@ -11,6 +11,8 @@ export default function Results() {
   const position1 = "President";
   const position2 = "Vice President";
   const position3 = "Secretary";
+  const position4 = "Treasurer";
+  const position5 = "Public Relations Officer";
 
   const [positions, setPositions] = useState<any>([]);
 
@@ -55,6 +57,21 @@ export default function Results() {
     args: [position3],
   });
 
+  const { data: treasurer } = useReadContract({
+    abi: abi,
+    address: votingContract,
+    functionName: "getCandidates",
+    args: [position4],
+  });
+
+  const { data: publicRelationsOfficer } = useReadContract({
+    abi: abi,
+    address: votingContract,
+    functionName: "getCandidates",
+    args: [position5],
+  });
+
+
   useEffect(() => {
     const processCandidates = () => {
       const newPositions = [
@@ -69,6 +86,14 @@ export default function Results() {
         {
           name: position3,
           candidates: secretary || [],
+        },
+        {
+          name: position4,
+          candidates: treasurer || [],
+        },
+        {
+          name: position5,
+          candidates: publicRelationsOfficer || [],
         },
       ];
 
@@ -91,7 +116,7 @@ export default function Results() {
     if (votingEnded) {
       processCandidates();
     }
-  }, [presidential, vicePresidential, secretary, votingEnded]);
+  }, [presidential, vicePresidential, secretary, votingEnded, treasurer, publicRelationsOfficer]);
 
   return (
     <main>

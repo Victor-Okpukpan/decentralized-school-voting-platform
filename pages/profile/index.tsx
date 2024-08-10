@@ -164,7 +164,7 @@ export default function Profile() {
               {name ? name : "Not Set"}
             </h1>
             <div className="mt-4">
-              {!voterData[0] ? (
+              {voterData && !voterData[0] ? (
                 <div className="">
                   <button
                     disabled={

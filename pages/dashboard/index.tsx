@@ -12,12 +12,16 @@ export default function Dashboard() {
   const position1 = "President";
   const position2 = "Vice President";
   const position3 = "Secretary";
+  const position4 = "Treasurer";
+  const position5 = "Public Relations Officer";
 
   const [electionStarted, setElectionStarted] = useState<any>(false);
   const [electionEnded, setElectionEnded] = useState<any>(false);
   const [presidentialCandidates, setPresidentialCandidates] = useState<any>([]);
   const [vicePresidentialCandidates, setVicePresidentialCandidates] = useState<any>([]);
   const [secretaryCandidates, setSecretaryCandidates] = useState<any>([]);
+  const [treasurerCandidates, setTreasurerCandidates] = useState<any>([]);
+  const [proCandidates, setProCandidates] = useState<any>([]);
 
   const { votingContract } = useMyContext();
 
@@ -60,6 +64,20 @@ export default function Dashboard() {
     args: [position3],
   });
 
+  const { data: treasurer } = useReadContract({
+    abi: abi,
+    address: votingContract,
+    functionName: "getCandidates",
+    args: [position4],
+  });
+
+  const { data: publicRelationsOfficer } = useReadContract({
+    abi: abi,
+    address: votingContract,
+    functionName: "getCandidates",
+    args: [position5],
+  });
+
   useEffect(() => {
     setElectionStarted(votingStarted);
     setElectionEnded(votingEnded);
@@ -75,7 +93,15 @@ export default function Dashboard() {
     if (secretary) {
       setSecretaryCandidates(secretary);
     }
-  }, [presidential, secretary, vicePresidential, votingEnded, votingStarted]);
+
+    if(treasurer){
+      setTreasurerCandidates(treasurer);
+    }
+
+    if(publicRelationsOfficer){
+      setProCandidates(publicRelationsOfficer);
+    }
+  }, [presidential, publicRelationsOfficer, secretary, treasurer, vicePresidential, votingEnded, votingStarted]);
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
@@ -112,6 +138,8 @@ export default function Dashboard() {
             <PositionCard title="President" candidates={presidentialCandidates} />
             <PositionCard title="Vice President" candidates={vicePresidentialCandidates} />
             <PositionCard title="Secretary" candidates={secretaryCandidates} />
+            <PositionCard title="Treasurer" candidates={treasurerCandidates} />
+            <PositionCard title="Public Relations Officer" candidates={proCandidates} />
           </div>
         </div>
       </div>
