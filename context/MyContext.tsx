@@ -52,11 +52,8 @@ const MyContext = createContext<MyContextType | undefined>(undefined);
 const contractTxId = process.env.NEXT_PUBLIC_WEAVEDB_CONTRACT_TX_ID;
 
 export const MyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const votingContract = "0x14915b142086431c91c86cadea03cc68e8a736de";
+  const votingContract = "0xab57b81cd0d32194ca9654bc6f18bdd583786d5d";
   const { address, isConnected } = useAccount();
-  const [availablePositions, setAvailablePositions] = useState<any>([]);
-  const [candidates, setCandidates] = useState<any>({});
-  console.log("candidates", candidates)
   const [db, setDb] = useState<WeaveDB | null>(null);
   const [userData, setUserData] = useState<
     | {
@@ -162,14 +159,7 @@ export const MyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       return error;
     }
   };
-
-  const { data: allPositions } = useReadContract({
-    abi: abi,
-    address: votingContract,
-    functionName: "getAllPositions",
-  });
   
-
   return (
     <MyContext.Provider
       value={{

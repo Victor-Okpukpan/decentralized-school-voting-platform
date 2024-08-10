@@ -23,6 +23,8 @@ export default function Profile() {
   const router = useRouter();
   const [voterData, setVoterData] = useState<any>([]);
 
+  console.log("data:", voterData);
+
   const {
     saveProfile,
     email,
@@ -162,7 +164,7 @@ export default function Profile() {
               {name ? name : "Not Set"}
             </h1>
             <div className="mt-4">
-              {voterData && voterData.length == 0 ? (
+              {!voterData[0] ? (
                 <div className="">
                   <button
                     disabled={
