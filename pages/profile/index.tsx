@@ -149,7 +149,7 @@ export default function Profile() {
             </p>
           </div>
         )}
-        <div className="flex items-center space-x-8">
+        <div className="flex flex-col md:flex-row items-center md:space-x-8">
           <div className="w-[250px] h-[250px] overflow-hidden rounded-full bg-gray-800 flex items-center justify-center">
             <Image
               src={`https://arweave.net/${imgHash}`}
@@ -160,7 +160,7 @@ export default function Profile() {
             />
           </div>
           <div>
-            <h1 className="text-4xl font-semibold capitalize">
+            <h1 className="text-4xl font-semibold text-center md:text-left capitalize">
               {name ? name : "Not Set"}
             </h1>
             <div className="mt-4">

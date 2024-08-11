@@ -11,7 +11,7 @@ export default function Navbar() {
       <nav className="bg-neutral-900">
         <div className="max-w-[1200px] mx-auto px-3">
           <div className="flex py-5 items-center justify-between">
-            <div className="">
+            <div className="hidden md:block">
               <Image
                 src="/uniuyo-logo.png"
                 alt="Uniuyo Logo"
@@ -20,7 +20,7 @@ export default function Navbar() {
               />
             </div>
 
-            <div className="space-x-5">
+            <div className="space-x-5 text-xs">
               <Link
                 href="/dashboard"
                 className="text-neutral-300 hover:text-white transition-all ease-out duration-200"

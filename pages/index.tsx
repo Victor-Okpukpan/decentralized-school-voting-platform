@@ -24,10 +24,10 @@ export default function Home() {
     <main className={`bg-neutral-950 body min-h-screen text-white`}>
       <div className="max-w-[1200px] mx-auto px-3">
         <div className="flex relative z-10 items-center flex-col min-h-screen justify-center">
-          <h1 className="text-5xl font-bold text-center">
+          <h1 className="md:text-5xl text-2xl font-bold text-center">
             Decentralized Voting for Uniuyo Students
           </h1>
-          <p className="text-center my-5">
+          <p className="text-center my-5 text-sm md:text-base">
             Empowering Uniuyo students through transparent, secure, and
             inclusive voting using blockchain technology.
           </p>
@@ -37,25 +37,25 @@ export default function Home() {
         <BackgroundBeams />
 
         <div className="mb-16">
-          <h1 className="text-5xl font-bold text-center">Why Our Platform?</h1>
-          <div className="grid grid-cols-3 gap-10 mt-10">
+          <h1 className="md:text-5xl text-2xl font-bold text-center">Why Our Platform?</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
             <div className="bg-black py-8 px-5 rounded-md shadow">
               <h2 className="text-2xl font-semibold">Transparency</h2>
-              <p>
+              <p className="text-sm md:text-base">
                 Every vote is recorded on the blockchain, ensuring a transparent
                 and tamper-proof process.
               </p>
             </div>
             <div className="bg-black py-8 px-5 rounded-md shadow">
               <h2 className="text-2xl font-semibold">Security</h2>
-              <p>
+              <p className="text-sm md:text-base">
                 Utilizing blockchain technology to safeguard the integrity of
                 each vote and maintain data privacy.
               </p>
             </div>
             <div className="bg-black py-8 px-5 rounded-md shadow">
               <h2 className="text-2xl font-semibold">Inclusivity</h2>
-              <p>
+              <p className="text-sm md:text-base">
                 Accessible and user-friendly platform designed to ensure all
                 students can participate in the voting process.
               </p>
