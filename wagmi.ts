@@ -1,13 +1,13 @@
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 import {
-  polygonAmoy,
+  arbitrumSepolia
 } from 'wagmi/chains';
 
 export const config = getDefaultConfig({
   appName: 'RainbowKit demo',
   projectId: 'YOUR_PROJECT_ID',
   chains: [
-    polygonAmoy
+    arbitrumSepolia
   ],
   ssr: true,
 });

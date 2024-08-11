@@ -52,7 +52,7 @@ const MyContext = createContext<MyContextType | undefined>(undefined);
 const contractTxId = process.env.NEXT_PUBLIC_WEAVEDB_CONTRACT_TX_ID;
 
 export const MyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const votingContract = "0xbff402ff1513e91f32f82c2980626a6b092529fc";
+  const votingContract = "0xab57b81cd0d32194ca9654bc6f18bdd583786d5d";
   const { address, isConnected } = useAccount();
   const [db, setDb] = useState<WeaveDB | null>(null);
   const [userData, setUserData] = useState<
