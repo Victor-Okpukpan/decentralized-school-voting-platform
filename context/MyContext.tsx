@@ -92,7 +92,7 @@ export const MyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   }, [address]);
 
   useEffect(() => {
-    if (address === "0x9c383a628Ce60F5CE4EFAd90AD3835F39eBbA6ce") {
+    if (address === "0x9c383a628Ce60F5CE4EFAd90AD3835F39eBbA6ce" || "0x6237f4a05a64BCafeD3A6BE511D1aDc9ec686602") {
       setIsAdmin(true);
     }
   }, [address]);
